@@ -22,16 +22,16 @@ puts "USERS"
 puts tp User.all
 
 #create random events
-# 10.times do
-#   admin = User.all.sample
-#   Event.create!(start_date: "2020-12-15T00:00:00+00:00", #DateTime.now + rand(1..100),
-#   duration: [15, 30, 45, 60, 90].sample,
-#   title: Faker::TvShows::RuPaul.queen,
-#   description: Faker::TvShows::RuPaul.quote + Faker::TvShows::RuPaul.quote,
-#   price: Faker::Number.between(from: 1, to: 1000),
-#   location: ["chemin Mendoza", "impasse Bariloche", "voie El Calafate", "avenue Buenos Aires", "place de Salta", "eglise El Chalten"].sample,
-#   event_admin: User.all.sample)
-# end
+3.times do
+  admin = User.all.sample
+  Event.create!(start_date: "2020-12-15T00:00:00+00:00", #DateTime.now + rand(1..100),
+  duration: [15, 30, 45, 60, 90].sample,
+  title: Faker::TvShows::RuPaul.queen,
+  description: Faker::TvShows::RuPaul.quote + Faker::TvShows::RuPaul.quote,
+  price: Faker::Number.between(from: 1, to: 1000),
+  location: ["chemin Mendoza", "impasse Bariloche", "voie El Calafate", "avenue Buenos Aires", "place de Salta", "eglise El Chalten"].sample,
+  event_admin: User.all.sample)
+end
 puts "*" * 20
 puts "EVENTS"
 puts tp Event.all

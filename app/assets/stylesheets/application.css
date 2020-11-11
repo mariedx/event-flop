@@ -1,9 +1,32 @@
-
- .jumbotron {
-  height: 400px;
-  background-image: url(https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
-  background-position-y: 20%;
+/* Hero Jumbotron */
+.jumbotron {
+  height: 450px;
+  background-image: url(https://images.unsplash.com/photo-1450609283058-0ec52fa7eac4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);
+  background-position-y: 30%;
+  opacity: 0.8;
   background-repeat: no-repeat;
-  background-position-x: 5%;
+  background-size: cover;
+  color: aliceblue;
+}
 
+.banner {
+  display: block;
+  margin-top: 20px;
+}
+
+.lead {
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: .3rem;
+}
+
+.jumbotron h1 {
+  font-weight: bolder;
+  letter-spacing: .2rem;
+}
+
+/* Footer */
+footer {
+  margin-left: 20px;
+  margin-right: 20px;
 }

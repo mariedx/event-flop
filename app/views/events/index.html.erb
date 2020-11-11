@@ -1,24 +1,35 @@
 <div class="container">
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3" style="color:white;" >EventFlop</h1>
-      <h3 style="color:white;">Des events hyper bof</h3>
-      <br/><br/>
+  
+  <!-- JUMBOTRON -->
+  <div class="jumbotron jumbotron-fluid background-image">
+    <div class="container banner text-center">
+      <h1 class="display-4 mt-5">EvenTop</h1>
+      <p class="lead mt-4 mb-4">Créer des évènements inoubliables</p>
+      <br >   
+      <%= link_to "Créer un évènement", new_event_path, class: "btn btn-light btn-lg" %>
     </div>
   </div>
 
-
+  <!-- TOUS LES EVENTS -->
   <div class="row">
-      <% @events.each_with_index do |event, i| %>
-        <div class="card border-primary mb-4 mx-auto" style="max-width: 20rem;">
-          <div class="card-header"> Event <%= event.id %></div>
-            <div class="card-body">
-              <h4 class="card-title"><%= event.title %></h4>
-                <p class="card-text"><%= event.description %></p>
-
-              <%= link_to "Découvre l'évènement", event_path(event.id), class: "nav-link"  %>
-            </div>
+    <% @events.each_with_index do |event, i| %>
+      <div class="card-deck mx-auto text-center">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Evènement <%= event.id %></h4>
+          </div>
+          <div class="card-body">
+          <div class="text-wrap bd-highlight" style="width: 15rem;">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Titre: <%= event.title %></li>
+              <br>
+              <li>Description: <%= event.description %></li>
+            </ul>
+          <%= link_to "Découvre l'évènement", event_path(event.id), class: "btn btn-lg btn-block btn-outline-danger" %>
+          </div>
+          </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
