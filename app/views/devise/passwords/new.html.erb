@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Mot de passe oublié ?</h1>
+
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Confirmer la demande nouveau mdp", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+      <% end %>
+      <br><br>
+      <%= render "devise/shared/links" %>
+
+   </div>
+  </div>
+</div>
+
+

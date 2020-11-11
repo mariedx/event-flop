@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <%= form_tag event_attendances_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+  <div class="card border-info mx-auto" style="max-width: 20rem;">
+   <div class="card-header"><span>Event : <%= @event.title %></span></div>
+    <div class="card-body">
+      <h4 class="card-title"><%= @amount %> euros</h4>
+        <p class="card-text">Durée : <%= @event.duration %> minutes <br> Date : <%= @event.start_date %></p>
+    </div>
+  </div>
+  <br>
+    <p class="text-info">Alors ? C'est parti ?</p>
+    </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Tu t'inscris à <%= @event.title %>?"
+          data-amount=<%= @stripe_amount %>
+          data-currency= 'eur'
+          data-locale="fr"></script>
+<% end %>
+
+</div>
+</div>

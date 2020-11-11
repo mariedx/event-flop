@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="text-center">
+    <br>
+    <h2 class="text-primary">Merci, tu as bien payé <strong><%=@amount%> euros</strong> !</h2>
+    <%= link_to "Retourner sur la page de l'évènement", event_path(@event.id), class: "nav-link"  %>
+  </div>
+</div>

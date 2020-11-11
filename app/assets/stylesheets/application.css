@@ -1,0 +1,9 @@
+
+ .jumbotron {
+  height: 400px;
+  background-image: url(https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-position-y: 20%;
+  background-repeat: no-repeat;
+  background-position-x: 5%;
+
+}

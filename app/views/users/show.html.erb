@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="text-center">
+    <br>
+    <h1> Profil </h1>
+    <br>
+    <!--image-->
+      <div class="avatar mx-auto white">
+        <h3>Votre photo actuelle</h3>
+    <%if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, alt: 'avatar', class:"rounded-circle" %>
+    <%else%>
+      <img src="https://picsum.photos/200" class="rounded-circle">
+    <%end%>
+        </div>
+    <br>
+
+      <h3>Changer de photo ?</h3>
+  <%= form_tag user_avatars_path(@user), multipart: true do %>
+    <%= file_field_tag :avatar%>
+    <%= submit_tag "mettre à jour" %>
+  <% end %>
+
+    <!--text-->
+
+
+    <div class="card-body">
+      <hr>
+
+      <h6 class="font-weight-light">Prénom : <p class="text-secondary"><% if current_user.first_name != nil%> <%= @user.first_name%></p> <% end%>
+      <h6 class="font-weight-light">Nom : <p class="text-secondary"><% if current_user.last_name != nil%> <%= @user.last_name%></p> <% end%>
+
+      <br>
+
+
+
+      <div class="card border-primary mx-auto" style="max-width: 20rem;">
+        <div class="card-body">
+          <h6 class="font-weight-light">Description : </h6>
+            <blockquote class="blockquote text-center">
+              <p class="mb-0 text-secondary"><% if current_user.description != nil%> <%= @user.description%></p> <% end%></p>
+              <footer class="blockquote-footer text-secondary">Toi, <cite title="Source Title">Quand tu as écrit cette description</cite></footer>
+            </blockquote>
+        </div>
+      </div>
+
+
+
+      <br>
+      <h6 class="font-weight-light">Email: <p class="text-secondary"><%= @user.email %></p>
+
+      <%= link_to "Editer mes informations", edit_user_path(@user), :class => "btn btn-primary" %>
+      <%= link_to "Editer mes identifiants", edit_user_registration_path(@user), :class => "btn btn-secondary" %>
+
+
+    </div>
+  </div>
+</div>

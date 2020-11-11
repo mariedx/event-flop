@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="text-center">
+    <br>
+    <h2> Mon espace admin <br> <i><%= @event.title %></i></h2>
+      <br>
+      <h3> Liste des participants</h3>
+
+   <div class="row justify-content-center">
+
+      <% @attendances.each do |attendance| %>
+        <div class="card border-primary mx-auto" style="max-width: 20rem;">
+          <div class="card-body">
+            <h6 class="font-weight-light"><%= attendance.user.first_name + " " + attendance.user.last_name%> </h6>
+              <blockquote class="blockquote text-center">
+                <p class="mb-0 text-secondary"><%= attendance.user.description%></p>
+                <footer class="blockquote-footer text-secondary"><%= attendance.user.email%></footer>
+              </blockquote>
+          </div>
+        </div>
+      <%end%>
+    </div>
+        <br><br>
+        <%= link_to "Modifier l'évènement", edit_event_path(@event.id) , class: "btn btn-primary"%>
+        <%= link_to "Supprimer l'événement", event_path(@event.id) , class: "btn btn-danger", :method => 'DELETE', :data => {:confirm => "Tu es sûr de vouloir supprimer l'événement?"} %>
+
+
+
+
+  <div>
+</div>

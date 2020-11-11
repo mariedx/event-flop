@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <p class="lead">Event <%=params[:id]%> : <%= @event.title %></p>
+    <h2><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></h2>
+
+    <!-- Picture -->
+    <%if @event.picture.attached?%>
+      <%= image_tag @event.picture, alt: 'picture' %>
+    <%else%>
+      <img src="https://picsum.photos/200" class="rounded-circle">
+    <%end%>
+
+    <br><br><br>
+    <!-- GOSSIP -->
+    <h6 class="font-weight-bold">Date : <span class="text-muted"><%= @event.start_date %></span></h6>
+    <h6 class="font-weight-bold">Durée : <span class="text-muted"><%= @event.duration %></span></h6>
+    <h6 class="font-weight-bold">Prix : <span class="text-muted"><%= @event.price %></span></h6>
+    <h6 class="font-weight-bold">Lieu : <span class="text-muted"><%= @event.location %></span></h6>
+    <h6 class="font-weight-bold">Crée par : <span class="text-muted"><%= @event.event_admin.first_name %> <%= @event.event_admin.last_name %></span></h6>
+    <br><br>
+    <h6 class="font-weight-bold"><span class="text-secondary"><%= @event.description %></span></h6>
+
+
+    <br>
+
+
+    <% if @event.users.select{ |user| user == current_user }.count != 0 && current_user != @event.event_admin%>
+      <p class="text-primary">Tu participes déjà à cet event ! </p>
+    <% elsif current_user == @event.event_admin %> <p class="text-primary">Mazel Tov, tu es administrateur de cet event !</p>
+      <%= link_to "Mon espace Admin", event_attendances_path(@event.id), :class => "btn btn-lg btn-primary" %>
+    <% elsif current_user == nil %> <p class="text-danger">
+      Tu dois être connecté.e pour t'inscrire à cet event !</p>
+    <% else%>
+      <%= link_to "Participer à cette dinguerie", new_event_attendance_path(@event.id), :class => "btn btn-lg btn-primary" %>
+
+    <%end%>
+
+  </div>
+</div>
