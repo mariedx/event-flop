@@ -10,7 +10,7 @@ require 'faker'
 require 'time'
 
 #create random users
-10.times do
+3.times do
   User.create!(email: Faker::Name.first_name+Faker::Name.last_name+"@yopmail.com",
   password: ["yellow10!", "coucou10!", "marseille10!", "password10!", "supersuper10!"].sample,
   description: Faker::TvShows::Community.quotes,
